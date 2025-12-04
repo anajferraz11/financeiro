@@ -6,6 +6,8 @@ if (isset($_SESSION['usuario_id'])) {
     header('Location: index.php');
     exit;
 }
+
+ echo password_hash('12345678', PASSWORD_DEFAULT);
 ?>
 
 <!DOCTYPE html>
@@ -32,5 +34,7 @@ if (isset($_SESSION['usuario_id'])) {
     </form>
 
     <p>Não tem conta? <a href="registro.php">Cadastre-se aqui.</a></p>
+
+   
 </body>
 </html>
