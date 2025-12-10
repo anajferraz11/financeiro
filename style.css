@@ -1,0 +1,90 @@
+
+body{
+  background-color: rgb(69, 67, 67);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif ; 
+  background-color: rgb(180, 180, 180);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 700px;
+  margin-top: 10%;
+}
+
+.button {
+  text-align: center ;
+  border: 20px;background-color: rgb(176, 172, 172);
+}
+.mensagem {
+  text-align: center;
+  
+}
+
+.mensagem-sucesso {
+  color: rgb(11, 134, 25);
+  background-color: rgb(150, 240, 150);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.mensagem-erro {
+
+  color: rgb(255, 10, 10);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.sistema {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif ; 
+  background-color: rgb(180, 180, 180);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 700px;
+  margin-top: 5%;
+  
+}
+
+.container {
+  text-align: left;
+  color: white;
+}
+
+.tabela{
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo{
+  width: 100%;
+  text-align: center;
+}
+
+.tabela2{
+  text-align: center;
+  
+}
+
+
+
+
+

@@ -21,11 +21,13 @@ if (isset($_SESSION['usuario_id'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Login - Sistema Financeiro</h1>
 
-    <?php exibir_mensagem(); ?>
+    <div class="login">
+          <h1>Login - Sistema Financeiro</h1>
 
-    <form action="autenticar.php" method="post">
+         <?php exibir_mensagem(); ?>
+
+     <form action="autenticar.php" method="post">
         <div>
             <label for="email">E-mail:</label>
             <input type="email" name="email" id="email" required>
@@ -41,6 +43,6 @@ if (isset($_SESSION['usuario_id'])) {
 
     <p>Não tem conta? <a href="registro.php">Cadastre-se aqui.</a></p>
 
-   
+    </div> 
 </body>
 </html>
