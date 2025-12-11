@@ -1,0 +1,275 @@
+/* html {
+    height: 100vh;
+}
+
+.container {
+    padding: 10px;
+    border: solid black 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    flex-direction: column;
+    margin-top: 75px;
+} */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* Container principal */
+.conteiner-pessoal {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   TÍTULOS
+================================ */
+
+h1, h2, h3 {
+    margin: 0 0 20px;
+    color: #1c1c1c;
+    font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   LINK DE SAIR
+================================ */
+
+.conteiner-pessoal > div a {
+    color: #ff5252;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.conteiner-pessoal > div a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   MENU DE NAVEGAÇÃO
+================================ */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    padding-bottom: 6px;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    color: #000;
+    border-bottom: 2px solid #4a6cf7;
+}
+
+
+/* ================================
+   BOTÃO "NOVA TRANSAÇÃO"
+================================ */
+
+.conteiner-pessoal a[href*="formulario"] {
+    display: inline-block;
+    background: #4a6cf7;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.conteiner-pessoal a[href*="formulario"]:hover {
+    background: #3557e0;
+}
+
+
+/* ================================
+   FILTROS
+================================ */
+
+form {
+    background: #f8f9fc;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #e5e7eb;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+    color: #222;
+    display: block;
+    margin-bottom: 6px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+}
+
+
+/* Botões do formulário */
+
+button {
+    background: #4a6cf7;
+    border: none;
+    padding: 10px 14px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover {
+    background: #3557e0;
+}
+
+form a {
+    margin-left: 10px;
+    color: #666;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================================
+   TABELA DE TRANSAÇÕES
+================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+table thead {
+    background: #4a6cf7;
+    color: white;
+}
+
+table thead th {
+    padding: 14px;
+    text-align: left;
+    font-weight: 500;
+}
+
+table tbody tr {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+table tbody tr:hover {
+    background: #f5f7ff;
+}
+
+table tbody td {
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* AÇÕES: EDITAR / EXCLUIR */
+
+table tbody td a {
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #4a6cf7;
+}
+
+table tbody td a:hover {
+    text-decoration: underline;
+}
+
+table tbody td a:last-child {
+    color: #ff4d4d;
+}
+
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+
+@media (max-width: 700px) {
+
+    .conteiner-pessoal {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e3e3e3;
+    }
+
+    table td {
+        text-align: right;
+        padding: 12px;
+        position: relative;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        color: #555;
+        font-weight: 600;
+    }
+}

@@ -26,7 +26,7 @@ if ($id_categoria) {
         $stmt->bindParam(':id_categoria', $id_categoria);
         $stmt->bindParam(':usuario_id', $usuario_id);
         
-        if ($stmt->execute()) {
+    if ($stmt->execute()) {
             set_mensagem('Categoria excluída com sucesso!', 'sucesso');
         } else {
             set_mensagem('Erro ao excluir categoria.', 'erro');

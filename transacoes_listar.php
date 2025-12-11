@@ -49,96 +49,101 @@ $categorias = $stmt_categorias->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transações - Sistema Financeiro</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo-transacoes-listar.css">
+
 </head>
+
 <body>
-    <h1>Sistema Financeiro Pessoal</h1>
-    
-    <div>
-        <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
-        <a href="logout.php">Sair</a>
-    </div>
-    
-    <?php exibir_mensagem(); ?>
-    
-    <nav>
-        <ul>
-            <li><a href="index.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
-    
-    <h2>Transações</h2>
-    
-    <div>
-        <a href="transacoes_formulario.php">Nova Transação</a>
-    </div>
-    
-    <h3>Filtros</h3>
-    <form method="GET" action="transacoes_listar.php">
+    <?php include 'navbar.php' ?>
+    <div class="container">
+        <h1>Sistema Financeiro Pessoal</h1>
+
         <div>
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo">
-                <option value="">Todos</option>
-                <option value="receita" <?php echo $filtro_tipo === 'receita' ? 'selected' : ''; ?>>Receita</option>
-                <option value="despesa" <?php echo $filtro_tipo === 'despesa' ? 'selected' : ''; ?>>Despesa</option>
-            </select>
+            <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
+            <a href="logout.php">Sair</a>
         </div>
-        
+
+        <?php exibir_mensagem(); ?>
+        <h2>Transações</h2>
+
         <div>
-            <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria">
-                <option value="">Todas</option>
-                <?php foreach ($categorias as $categoria): ?>
-                    <option value="<?php echo $categoria['id_categoria']; ?>" 
+            <a href="transacoes_formulario.php">Nova Transação</a>
+        </div>
+
+        <h3>Filtros</h3>
+        <form method="GET" action="transacoes_listar.php">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Tipo:</span>
+                </div>
+                <select id="tipo" name="tipo" class="form-select">
+                    <option value="">Todos</option>
+                    <option value="receita" <?php echo $filtro_tipo === 'receita' ? 'selected' : ''; ?>>Receita</option>
+                    <option value="despesa" <?php echo $filtro_tipo === 'despesa' ? 'selected' : ''; ?>>Despesa</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Categoria:</span>
+                </div>
+                <select id="categoria" name="categoria" class="form-select">
+                    <option value="">Todas</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?php echo $categoria['id_categoria']; ?>"
                             <?php echo $filtro_categoria == $categoria['id_categoria'] ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($categoria['nome']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        
-        <div>
-            <button type="submit">Filtrar</button>
-            <a href="transacoes_listar.php">Limpar Filtros</a>
-        </div>
-    </form>
-    
-    <?php if (count($transacoes) > 0): ?>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Tipo</th>
-                    <th>Valor</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($transacoes as $transacao): ?>
+                            <?php echo htmlspecialchars($categoria['nome']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit">Filtrar</button>
+                <a href="transacoes_listar.php">Limpar Filtros</a>
+            </div>
+        </form>
+
+        <?php if (count($transacoes) > 0): ?>
+            <table border="1">
+                <thead>
                     <tr>
-                        <td><?php echo date('d/m/Y', strtotime($transacao['data_transacao'])); ?></td>
-                        <td><?php echo htmlspecialchars($transacao['descricao']); ?></td>
-                        <td><?php echo htmlspecialchars($transacao['categoria_nome'] ?? 'Sem categoria'); ?></td>
-                        <td><?php echo ucfirst($transacao['tipo']); ?></td>
-                        <td>R$ <?php echo number_format($transacao['valor'], 2, ',', '.'); ?></td>
-                        <td>
-                            <a href="transacoes_formulario.php?id=<?php echo $transacao['id_transacao']; ?>">Editar</a>
-                            <a href="transacoes_excluir.php?id=<?php echo $transacao['id_transacao']; ?>" 
-                               onclick="return confirm('Tem certeza que deseja excluir esta transação?');">Excluir</a>
-                        </td>
+                        <th> Data </th>
+                        <th> Descrição </th>
+                        <th> Categoria </th>
+                        <th> Tipo </th>
+                        <th> Valor </th>
+                        <th> Ações </th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>Nenhuma transação encontrada.</p>
-    <?php endif; ?>
+                </thead>
+                <tbody>
+                    <?php foreach ($transacoes as $transacao): ?>
+                        <tr>
+                            <td><?php echo date('d/m/Y', strtotime($transacao['data_transacao'])); ?></td>
+                            <td><?php echo htmlspecialchars($transacao['descricao']); ?></td>
+                            <td><?php echo htmlspecialchars($transacao['categoria_nome'] ?? 'Sem categoria'); ?></td>
+                            <td><?php echo ucfirst($transacao['tipo']); ?></td>
+                            <td>R$ <?php echo number_format($transacao['valor'], 2, ',', '.'); ?></td>
+                            <td>
+                                <a href="transacoes_formulario.php?id=<?php echo $transacao['id_transacao']; ?>">Editar</a>
+                                <a href="transacoes_excluir.php?id=<?php echo $transacao['id_transacao']; ?>"
+                                    onclick="return confirm('Tem certeza que deseja excluir esta transação?');">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>Nenhuma transação encontrada.</p>
+        <?php endif; ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </div>
 </body>
+
 </html>

@@ -70,13 +70,7 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
 
     <?php exibir_mensagem(); ?>
 
-    <nav>
-        <ul>
-          <li><a href="index.php">Dashboard</a></li>
-          <li><a href="categorias_listar.php">Categorias</a></li>
-          <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
+    
 
     <div class="titulo">
         <h2>Resumo Financeiro</h2>
