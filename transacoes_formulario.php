@@ -57,7 +57,7 @@ $categorias = $stmt_categorias->fetchAll();
         <h1>Sistema Financeiro Pessoal</h1>
 
         <div>
-            <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?>Ana</strong></p>
+            <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
             <a href="logout.php">Sair</a>
         </div>
 
