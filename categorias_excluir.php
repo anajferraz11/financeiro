@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once 'mensagens.php';
+require_once 'mensagem.php';
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {

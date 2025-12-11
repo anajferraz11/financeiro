@@ -51,8 +51,15 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Financeiro</title>
      <link rel="stylesheet" href="style.css">
+
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+     <?php include 'navbar.php'; ?>
+
+<div class="conteiner-sistema">
 <div class="sistema">
     <h1>Sistema Financeiro</h1>
 
@@ -74,9 +81,6 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
     <div class="titulo">
         <h2>Resumo Financeiro</h2>
     </div>
-    
-
-
     <div class="tabela">
         
         <div>
@@ -94,7 +98,7 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
             <p>R$ <?php echo number_format($saldo, 2, ',', '.') ?></p>
         </div>
     </div>
-<div class="titulo">
+<div class="table">
     <h2>Últimas Transações</h2>
     
     <?php if (count($ultimas_transacoes) > 0): ?>
@@ -127,7 +131,9 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
         <p><a href="transacoes_formulario.php">Cadastrar primeira transação</a></p>
     <?php endif; ?>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+ </div>
 </div>
- 
 </body>
 </html>
